@@ -541,5 +541,5 @@ Rails.application.config.sorcery.configure do |config|
 
   # This line must come after the 'user config' block.
   # Define which model authenticates with sorcery.
-  config.user_class = "Author"
+  config.user_class = 'Author'
 end
