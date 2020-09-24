@@ -1,6 +1,9 @@
+#rubocop:disable Layout/LineLength
+#rubocop:disable Style/GuardClause
+#rubocop:disable Style/NumericPredicate
 class AuthorsController < ApplicationController
-  before_action :set_author, only: [:show, :edit, :update, :destroy]
-  before_filter :require_login, except: [:new, :create]
+  before_action :set_author, only: %i[show edit update destroy]
+  before_filter :require_login, except: %i[new create]
   # GET /authors
   # GET /authors.json
   def index
@@ -9,8 +12,7 @@ class AuthorsController < ApplicationController
 
   # GET /authors/1
   # GET /authors/1.json
-  def show
-  end
+  def show; end
 
   # GET /authors/new
   def new
@@ -18,8 +20,7 @@ class AuthorsController < ApplicationController
   end
 
   # GET /authors/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /authors
   # POST /authors.json
@@ -62,22 +63,26 @@ class AuthorsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_author
-      @author = Author.find(params[:id])
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_author
+    @author = Author.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def author_params
+    params.require(:author).permit(:username, :email, :password, :password_confirmation)
+  end
+
+  before_filter :zero_authors_or_authenticated, only: %i[new create]
+
+  def zero_authors_or_authenticated
+    unless Author.count == 0 || current_user
+      redirect_to root_path
+      false
     end
-
-    # Only allow a list of trusted parameters through.
-    def author_params
-      params.require(:author).permit(:username, :email, :password, :password_confirmation)
-    end
-
-before_filter :zero_authors_or_authenticated, only: [:new, :create]
-
-def zero_authors_or_authenticated
-  unless Author.count == 0 || current_user
-    redirect_to root_path
-    return false
   end
 end
-end
+#rubocop:enable Layout/LineLength
+#rubocop:disable Style/GuardClause
+#rubocop:disable Style/NumericPredicate
