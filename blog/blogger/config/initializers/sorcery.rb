@@ -1,3 +1,5 @@
+#rubocop:disable Style/AsciiComments
+#rubocop:disable Layout/LineLength
 # The first thing you need to configure is which modules you need in your app.
 # The default is nothing which will include only core features (password encryption, login/logout).
 #
@@ -543,3 +545,5 @@ Rails.application.config.sorcery.configure do |config|
   # Define which model authenticates with sorcery.
   config.user_class = 'Author'
 end
+#rubocop:enable Style/AsciiComments
+#rubocop:enable Layout/LineLength
