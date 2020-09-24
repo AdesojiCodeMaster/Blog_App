@@ -1,4 +1,3 @@
-# rubocop:disable Layout/LineLength
 # rubocop:disable Style/GuardClause
 # rubocop:disable Style/NumericPredicate
 class AuthorsController < ApplicationController
@@ -83,6 +82,5 @@ class AuthorsController < ApplicationController
     end
   end
 end
-# rubocop:enable Layout/LineLength
 # rubocop:enable Style/GuardClause
 # rubocop:enable Style/NumericPredicate
