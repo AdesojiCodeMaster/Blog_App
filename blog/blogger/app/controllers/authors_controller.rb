@@ -1,6 +1,3 @@
-# rubocop:disable Layout/LineLength
-# rubocop:disable Style/GuardClause
-# rubocop:disable Style/NumericPredicate
 class AuthorsController < ApplicationController
   before_action :set_author, only: %i[show edit update destroy]
   before_action :require_login, except: %i[new create]
@@ -83,6 +80,3 @@ class AuthorsController < ApplicationController
     end
   end
 end
-# rubocop:enable Layout/LineLength
-# rubocop:enable Style/GuardClause
-# rubocop:enable Style/NumericPredicate
