@@ -1,9 +1,9 @@
-#rubocop:disable Layout/LineLength
-#rubocop:disable Style/GuardClause
-#rubocop:disable Style/NumericPredicate
+# rubocop:disable Layout/LineLength
+# rubocop:disable Style/GuardClause
+# rubocop:disable Style/NumericPredicate
 class AuthorsController < ApplicationController
   before_action :set_author, only: %i[show edit update destroy]
-  before_filter :require_login, except: %i[new create]
+  before_action :require_login, except: %i[new create]
   # GET /authors
   # GET /authors.json
   def index
@@ -74,7 +74,7 @@ class AuthorsController < ApplicationController
     params.require(:author).permit(:username, :email, :password, :password_confirmation)
   end
 
-  before_filter :zero_authors_or_authenticated, only: %i[new create]
+  before_action :zero_authors_or_authenticated, only: %i[new create]
 
   def zero_authors_or_authenticated
     unless Author.count == 0 || current_user
@@ -83,6 +83,6 @@ class AuthorsController < ApplicationController
     end
   end
 end
-#rubocop:enable Layout/LineLength
-#rubocop:disable Style/GuardClause
-#rubocop:disable Style/NumericPredicate
+# rubocop:enable Layout/LineLength
+# rubocop:enable Style/GuardClause
+# rubocop:enable Style/NumericPredicate
