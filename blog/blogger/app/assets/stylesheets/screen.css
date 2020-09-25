@@ -531,7 +531,7 @@ a.new_article:active,
 
 #articles .actions a {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
-  filter: progid:dximagetransform.microsoft.alpha(opacity=20);
+  filter: ~"progid:dximagetransform.microsoft.alpha(opacity=20)";
   opacity: 0.2;
 }
 
@@ -553,7 +553,7 @@ a.new_article:active,
 
 #articles .actions a:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
-  filter: progid:dximagetransform.microsoft.alpha(opacity=40);
+  filter: ~"progid:dximagetransform.microsoft.alpha(opacity=40)";
   opacity: 0.4;
 }
 
@@ -575,7 +575,7 @@ a.new_article:active,
 }
 
 .article_actions img {
-  filter: progid:dximagetransform.microsoft.alpha(opacity=20); /* progid:dximagetransform.microsoft.alpha(opacity=20); */
+  filter: ~"progid:dximagetransform.microsoft.alpha(opacity=20)"; /* progid:dximagetransform.microsoft.alpha(opacity=20); */
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
   opacity: 0.2;
   position: relative;
@@ -584,7 +584,7 @@ a.new_article:active,
 
 .article_actions a:hover img {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
-  filter: progid:dximagetransform.microsoft.alpha(opacity=60);
+  filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=60)"; /* progid:dximagetransform.microsoft.alpha(opacity=60); */
   opacity: 0.6;
 }
 
