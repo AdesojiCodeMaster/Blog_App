@@ -118,17 +118,6 @@ input[type=submit] {
   font-weight: bold;
 }
 
-.fancy-button-reset-base-class::-moz-focus-inner,
-input[type=submit]::-moz-focus-inner {
-  border: none;
-  padding: 0;
-}
-
-.fancy-button-reset-base-class:focus,
-input[type=submit]:focus {
-  outline: none;
-}
-
 article,
 aside,
 canvas,
@@ -166,9 +155,6 @@ html {
 }
 
 body {
-  line-height: 1;
-  color: black;
-  background: white;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background: #fff;
   margin: 50px auto 30px;
@@ -245,8 +231,7 @@ body::after {
   border-radius: 6px;
   background: #000;
   z-index: -1;
-  -moz-box-shadow: 
-  gba(0, 0, 0, 0.3) 0 2px 5px 1px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.3) 0 2px 5px 1px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 2px 5px 1px;
   -o-box-shadow: rgba(0, 0, 0, 0.3) 0 2px 5px 1px;
   box-shadow: rgba(0, 0, 0, 0.3) 0 2px 5px 1px;
@@ -378,6 +363,11 @@ h4 {
   color: #6c7c9a;
 }
 
+form p {
+  padding: 0;
+  margin-bottom: 0.6em;
+}
+
 .comment p {
   padding-left: 12px;
   border-left: 5px solid rgba(45, 65, 89, 0.5);
@@ -395,6 +385,15 @@ h4 {
   border-top: none;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+
 .comment + h3,
 .comment + h4 {
   margin: 0 0 0.5em;
@@ -403,15 +402,6 @@ h4 {
 .comment:nth-last-of-type(1) {
   border-bottom: 1px solid #ddd;
   margin-bottom: 2em;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: bold;
 }
 
 .top-button,
@@ -442,6 +432,18 @@ a.new_article,
   text-decoration: none;
 }
 
+.article_actions a[href$='edit'],
+.article_actions a[data-method='delete'] {
+  text-decoration: none;
+  float: none;
+  margin-left: 0.5em;
+  padding: 4px 12px 3px 8px;
+}
+
+.article_actions a[data-method='delete'] {
+  right: 90px;
+}
+
 .top-button:hover,
 a.new_article:hover,
 .article_actions a[href$='edit']:hover,
@@ -460,6 +462,14 @@ a.new_article:active,
 
 #sidebar + ul {
   padding-right: 180px;
+}
+
+#articles li {
+  border-bottom: 1px dashed #e5e5e5;
+  padding: 1em 0 0.8em;
+  margin-right: 20px;
+  font-size: 1.2em;
+  position: relative;
 }
 
 #sidebar + ul li {
@@ -500,14 +510,6 @@ a.new_article:active,
   border-right: 1px solid #e2e2e2;
 }
 
-#articles li {
-  border-bottom: 1px dashed #e5e5e5;
-  padding: 1em 0 0.8em;
-  margin-right: 20px;
-  font-size: 1.2em;
-  position: relative;
-}
-
 #articles li:last-child {
   -moz-border-radius-bottomleft: 6px;
   -webkit-border-bottom-left-radius: 6px;
@@ -516,6 +518,21 @@ a.new_article:active,
   -khtml-border-bottom-left-radius: 6px;
   border-bottom-left-radius: 6px;
   border-bottom: 0;
+}
+
+.article_actions a {
+  float: left;
+  color: #999;
+}
+
+#sidebar ul a {
+  color: #6c7c9a;
+}
+
+#articles .actions a {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+  filter: progid:dximagetransform.microsoft.alpha(opacity=20);
+  opacity: 0.2;
 }
 
 #articles li > a:first-child {
@@ -532,12 +549,6 @@ a.new_article:active,
   line-height: 1em;
   position: relative;
   top: 2px;
-}
-
-#articles .actions a {
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
-  filter: progid:dximagetransform.microsoft.alpha(opacity=20);
-  opacity: 0.2;
 }
 
 #articles .actions a:hover {
@@ -563,17 +574,6 @@ a.new_article:active,
   text-align: right;
 }
 
-.article_actions a {
-  float: left;
-  color: #999;
-}
-
-.article_actions a:hover img {
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
-  filter: progid:dximagetransform.microsoft.alpha(opacity=60);
-  opacity: 0.6;
-}
-
 .article_actions img {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
   filter: progid:dximagetransform.microsoft.alpha(opacity=20);
@@ -582,16 +582,10 @@ a.new_article:active,
   top: 2px;
 }
 
-.article_actions a[href$='edit'],
-.article_actions a[data-method='delete'] {
-  text-decoration: none;
-  float: none;
-  margin-left: 0.5em;
-  padding: 4px 12px 3px 8px;
-}
-
-.article_actions a[data-method='delete'] {
-  right: 90px;
+.article_actions a:hover img {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+  filter: progid:dximagetransform.microsoft.alpha(opacity=60);
+  opacity: 0.6;
 }
 
 p.tag_list {
@@ -617,10 +611,6 @@ p.tag_list {
   font-weight: normal;
 }
 
-#sidebar ul a {
-  color: #6c7c9a;
-}
-
 .input,
 form input[type=text],
 form input[type=password],
@@ -643,6 +633,16 @@ form textarea {
   font-size: 1.3em;
 }
 
+form textarea {
+  height: 12em;
+  font-size: 1.1em;
+}
+
+form input[type=text],
+form input[type=password] {
+  margin: 0;
+}
+
 .input:focus,
 form input[type=text]:focus,
 form input[type=password]:focus,
@@ -656,16 +656,6 @@ form textarea:focus {
   background-color: #fff;
 }
 
-form input[type=text],
-form input[type=password] {
-  margin: 0;
-}
-
-form p {
-  padding: 0;
-  margin-bottom: 0.6em;
-}
-
 form label {
   color: #6c7c9a;
   font-size: 0.9em;
@@ -674,11 +664,6 @@ form label {
   padding-bottom: 0.2em;
   display: inline-block;
   text-transform: uppercase;
-}
-
-form textarea {
-  height: 12em;
-  font-size: 1.1em;
 }
 
 input[type=submit] {
@@ -708,11 +693,22 @@ input[type=submit] {
   -khtml-background-clip: padding-box;
   background-clip: padding-box;
   font-size: 1.2em;
+  color: #fff;
 }
 
-input[type=submit],
+.fancy-button-reset-base-class::-moz-focus-inner,
+input[type=submit]::-moz-focus-inner {
+  border: none;
+  padding: 0;
+}
+
 input[type=submit]:visited {
   color: #fff;
+}
+
+.fancy-button-reset-base-class:focus,
+input[type=submit]:focus {
+  outline: none;
 }
 
 input[type=submit]:hover,
@@ -723,18 +719,6 @@ input[type=submit]:focus {
   background-image: linear-gradient(#769bbf, #466d94 10%, #283f55 50%, #23374b 50%, #34516d);
   border-color: #15202c;
   text-shadow: #02070c 0 1px 1px;
-}
-
-input[type=submit]:active,
-input[type=submit]:active:visited {
-  color: #fff;
-}
-
-input[type=submit]:hover,
-input[type=submit]:hover:visited,
-input[type=submit]:focus,
-input[type=submit]:focus:visited {
-  color: #fff;
 }
 
 input[type=submit]:active {
@@ -748,6 +732,15 @@ input[type=submit]:active {
   -webkit-box-shadow: #192836 0 0.08em 0.2em 1px inset;
   -o-box-shadow: #192836 0 0.08em 0.2em 1px inset;
   box-shadow: #192836 0 0.08em 0.2em 1px inset;
+}
+
+input[type=submit]:focus,
+input[type=submit]:hover,
+input[type=submit]:active,
+input[type=submit]:focus:visited,
+input[type=submit]:active:visited,
+input[type=submit]:hover:visited {
+  color: #fff;
 }
 
 div.field_with_errors label {
