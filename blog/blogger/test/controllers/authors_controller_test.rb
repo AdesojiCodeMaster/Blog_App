@@ -1,4 +1,7 @@
 # rubocop:disable Layout/LineLength
+# rubocop:disable Style/NumericPredicate
+# rubocop:disable Style/GuardClause
+# rubocop:disable Lint/RedundantCopDisableDirective
 require 'test_helper'
 
 class AuthorsControllerTest < ActionDispatch::IntegrationTest
@@ -48,3 +51,6 @@ class AuthorsControllerTest < ActionDispatch::IntegrationTest
   end
 end
 # rubocop:enable Layout/LineLength
+# rubocop:enable Style/NumericPredicate
+# rubocop:enable Style/GuardClause
+# rubocop:enable Lint/RedundantCopDisableDirective
