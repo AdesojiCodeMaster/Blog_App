@@ -1,4 +1,5 @@
-# rubocop:disable Lint/RedundantCopDisableDirective
+# rubocop:disable RedundantCopDisableDirective
+# rubocop:disable LineLength
 require 'test_helper'
 
 class AuthorsControllerTest < ActionDispatch::IntegrationTest
@@ -47,4 +48,5 @@ class AuthorsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to authors_url
   end
 end
-# rubocop:enable Lint/RedundantCopDisableDirective
+# rubocop:enable RedundantCopDisableDirective
+# rubocop:disable LineLength
