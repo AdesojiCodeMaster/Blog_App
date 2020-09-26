@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_24_202027) do # rubocop:disable Metrics/BlockLength
+ActiveRecord::Schema.define(version: 2020_09_24_202027) do # rubocop:disable Metrics/BlockLength, Style/NumericLiterals
   create_table 'articles', force: :cascade do |t|
     t.string 'title'
     t.text 'body'
